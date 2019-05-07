@@ -26,7 +26,9 @@ object camion {
 		return cosas.any { c => c.peso().between(min, max) }
 	}
 	method cosaMasPesada() {
-		return cosas.filter { c => c.peso() }
+		return cosas.max { c => c.peso() }
 	}
-	method pesos() { return cosas.peso() }
+	method pesos() {
+		return cosas.map( { c => c.peso() } )
+	}
 }
